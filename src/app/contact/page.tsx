@@ -1,7 +1,5 @@
 "use client";
-
 import type React from "react";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -10,6 +8,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+const customIcon = new L.Icon({
+  iconUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+});
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -29,21 +38,28 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    }, 1500);
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        console.error("Submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const fadeIn = {
@@ -191,7 +207,7 @@ export default function ContactPage() {
                       <h3 className="text-lg font-semibold text-blue-900">
                         Phone
                       </h3>
-                      <p className="text-gray-600">(555) 123-4567</p>
+                      <p className="text-gray-600">+1 (818) 795-2953</p>
                       <p className="text-sm text-gray-500">
                         Available Monday-Friday, 8am-6pm
                       </p>
@@ -209,7 +225,9 @@ export default function ContactPage() {
                       <h3 className="text-lg font-semibold text-blue-900">
                         Email
                       </h3>
-                      <p className="text-gray-600">care@eldercare.example</p>
+                      <p className="text-gray-600">
+                        Northridgeboardingcare@gmail.com
+                      </p>
                       <p className="text-sm text-gray-500">
                         We&apos;ll respond within 24 hours
                       </p>
@@ -227,8 +245,8 @@ export default function ContactPage() {
                       <h3 className="text-lg font-semibold text-blue-900">
                         Office Location
                       </h3>
-                      <p className="text-gray-600">123 Care Lane, Suite 100</p>
-                      <p className="text-gray-600">Compassion City, CA 90210</p>
+                      <p className="text-gray-600">8754 Winnetka ave</p>
+                      <p className="text-gray-600">Northridge, CA 91325</p>
                     </div>
                   </div>
                 </CardContent>
@@ -236,9 +254,26 @@ export default function ContactPage() {
               <div className="rounded-lg overflow-hidden border border-blue-100 h-[300px] w-full">
                 {/* Map placeholder - in a real app, you would integrate Google Maps or another map provider */}
                 <div className="w-full h-full bg-blue-50 flex items-center justify-center">
-                  <p className="text-blue-700">
-                    Interactive Map Would Display Here
-                  </p>
+                  <MapContainer
+                    center={[34.2299414, -118.5709483]}
+                    zoom={16}
+                    style={{
+                      height: "100vh",
+                      width: "100%",
+                      position: "relative",
+                      zIndex: 0,
+                    }}
+                  >
+                    <TileLayer
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    />
+
+                    <Marker
+                      position={[34.2299414, -118.5709483]}
+                      icon={customIcon}
+                    />
+                  </MapContainer>
                 </div>
               </div>
             </motion.div>

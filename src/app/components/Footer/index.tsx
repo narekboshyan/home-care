@@ -9,7 +9,9 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <Heart className="h-6 w-6 text-blue-700" />
-              <span className="text-xl font-bold text-blue-900">ElderCare</span>
+              <span className="text-xl font-bold text-blue-900">
+                Northridge Boarding Care
+              </span>
             </Link>
             <p className="text-sm text-gray-600">
               Providing compassionate care and support for seniors and their
@@ -77,17 +79,17 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-sm font-medium text-blue-900">Contact</h3>
             <div className="text-sm text-gray-600 space-y-2">
-              <p>123 Care Lane, Suite 100</p>
-              <p>Compassion City, CA 90210</p>
-              <p>Phone: (555) 123-4567</p>
-              <p>Email: care@eldercare.example</p>
+              <p>8754 Winnetka ave</p>
+              <p>Northridge, CA 91325</p>
+              <p>Phone: +1 (818) 795-2953</p>
+              <p>Email: Northridgeboardingcare@gmail.com</p>
             </div>
           </div>
         </div>
         <div className="mt-8 border-t pt-6">
           <p className="text-xs text-gray-600 text-center">
-            © {new Date().getFullYear()} ElderCare Services. All rights
-            reserved.
+            © {new Date().getFullYear()} Northridge Boarding Care Services. All
+            rights reserved.
           </p>
         </div>
       </div>
