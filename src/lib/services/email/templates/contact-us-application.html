@@ -1,70 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Contact Us Email</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us Message</title>
   </head>
   <body
     style="
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9fafb;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #333333;
+      line-height: 1.6;
     "
   >
-    <table width="100%" cellpadding="0" cellspacing="0" style="padding: 20px">
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="padding: 40px 10px"
+    >
       <tr>
-        <td>
+        <td align="center">
+          <!-- Main Container -->
           <table
-            width="600"
+            width="100%"
             cellpadding="0"
             cellspacing="0"
             style="
+              max-width: 600px;
               background-color: #ffffff;
-              border-radius: 8px;
-              padding: 20px;
-              box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+              border-radius: 12px;
+              overflow: hidden;
+              box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             "
           >
-            <tr>
-              <td style="padding-bottom: 20px">
-                <h2 style="margin: 0; color: #1f2937">
-                  📩 New Contact Message
-                </h2>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p style="margin: 0; font-size: 16px; color: #111827">
-                  <strong>Full Name:</strong> {{fullName}}
-                </p>
-                <p style="margin: 10px 0 0; font-size: 16px; color: #111827">
-                  <strong>Email:</strong> {{email}}
-                </p>
-                <p style="margin: 10px 0 0; font-size: 16px; color: #111827">
-                  <strong>Phone:</strong> {{phoneNumber}}
-                </p>
-                <p style="margin: 10px 0 0; font-size: 16px; color: #111827">
-                  <strong>Message:</strong>
-                </p>
-                <p style="margin: 5px 0 0; font-size: 16px; color: #374151">
-                  {{message}}
-                </p>
-              </td>
-            </tr>
+            <!-- Header -->
             <tr>
               <td
                 style="
-                  padding-top: 30px;
+                  background-color: #4f46e5;
+                  padding: 30px 40px;
                   text-align: center;
-                  color: #9ca3af;
-                  font-size: 14px;
+                  border-bottom: 1px solid #e5e7eb;
                 "
               >
-                Sent from your website contact form.
+                <h1
+                  style="
+                    margin: 0;
+                    font-size: 24px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    letter-spacing: 0.5px;
+                  "
+                >
+                  📬 New Contact Form Submission
+                </h1>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 35px 40px; text-align: left">
+                <!-- Personal Info Section -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="
+                    background-color: #f9fafb;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    padding: 20px;
+                    border-left: 4px solid #4f46e5;
+                  "
+                >
+                  <tr>
+                    <td>
+                      <h2
+                        style="
+                          margin: 0 0 15px;
+                          font-size: 18px;
+                          color: #1f2937;
+                          font-weight: 600;
+                        "
+                      >
+                        Contact Information
+                      </h2>
+
+                      <p
+                        style="
+                          margin: 12px 0;
+                          font-size: 16px;
+                          color: #4b5563;
+                          display: flex;
+                        "
+                      >
+                        <span
+                          style="
+                            font-weight: 600;
+                            width: 140px;
+                            display: inline-block;
+                            color: #374151;
+                          "
+                          >Full Name:</span
+                        >
+                        <span>{{fullName}}</span>
+                      </p>
+
+                      <p
+                        style="margin: 12px 0; font-size: 16px; color: #4b5563"
+                      >
+                        <span
+                          style="
+                            font-weight: 600;
+                            width: 140px;
+                            display: inline-block;
+                            color: #374151;
+                          "
+                          >Email:</span
+                        >
+                        <span style="color: #4f46e5">{{email}}</span>
+                      </p>
+
+                      <p
+                        style="margin: 12px 0; font-size: 16px; color: #4b5563"
+                      >
+                        <span
+                          style="
+                            font-weight: 600;
+                            width: 140px;
+                            display: inline-block;
+                            color: #374151;
+                          "
+                          >Phone Number:</span
+                        >
+                        <span>{{phoneNumber}}</span>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Message Section -->
+                <h2
+                  style="
+                    margin: 0 0 15px;
+                    font-size: 18px;
+                    color: #1f2937;
+                    font-weight: 600;
+                  "
+                >
+                  Message
+                </h2>
+
+                <div
+                  style="
+                    background-color: #f9fafb;
+                    padding: 20px;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    color: #4b5563;
+                    line-height: 1.6;
+                    border-left: 4px solid #10b981;
+                  "
+                >
+                  {{message}}
+                </div>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #f8fafc;
+                  padding: 25px 40px;
+                  text-align: center;
+                  border-top: 1px solid #e5e7eb;
+                "
+              >
+                <p style="margin: 0; font-size: 14px; color: #6b7280">
+                  This message was sent from your website contact form.
+                </p>
+                <p style="margin: 10px 0 0; font-size: 14px; color: #6b7280">
+                  © 2025 Northridge Boarding Care. All rights reserved.
+                </p>
               </td>
             </tr>
           </table>
+
+          <!-- Legal Text -->
+          <p
+            style="
+              text-align: center;
+              font-size: 12px;
+              color: #9ca3af;
+              margin-top: 20px;
+            "
+          >
+            Please do not reply to this automated email.
+          </p>
         </td>
       </tr>
     </table>

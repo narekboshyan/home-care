@@ -37,7 +37,7 @@ class EmailService {
     context = {},
   }: SendMailTemplatePayloadInterface & {
     template: string;
-    context?: Record<string, unknown>;
+    context?: Record<string, string>;
   }): Promise<void> {
     const html = this._renderTemplate(template, context);
 
@@ -55,7 +55,7 @@ class EmailService {
 
   private _renderTemplate(
     template: string,
-    context: Record<string, any>
+    context: Record<string, string>
   ): string {
     let html = this._loadTemplate(template);
 
@@ -74,7 +74,7 @@ class EmailService {
     message: string
   ): Promise<unknown> {
     return this._sendTemplate({
-      to: "asya.harutyunyan010@gmail.com",
+      to: process.env.SEND_EMAIL_TO as string,
       subject: "New applicant",
       template: "contact-us-application",
       context: {
