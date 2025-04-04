@@ -20,7 +20,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function HomePage() {
   const fadeIn = {
@@ -294,90 +293,6 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white flex justify-center">
-        <div className="container px-4 md:px-6">
-          <motion.div
-            className="flex flex-col items-center justify-center space-y-4 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-blue-900">
-                Happy Families
-              </h2>
-              <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Hear what families have to say about our compassionate care
-                services.
-              </p>
-            </div>
-          </motion.div>
-          <motion.div
-            className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-2"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={fadeIn}>
-              <Card className="h-full border-blue-100 bg-blue-50/50">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <Avatar className="h-12 w-12 border-2 border-white">
-                      <AvatarImage src="/placeholder.svg" alt="Sarah Johnson" />
-                      <AvatarFallback>SJ</AvatarFallback>
-                    </Avatar>
-                    <div className="space-y-1">
-                      <h3 className="font-semibold text-blue-900">
-                        Sarah Johnson
-                      </h3>
-                      <p className="text-sm text-gray-500">
-                        Daughter of client
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <p className="text-gray-600 italic">
-                      &quot;The care and compassion shown to my mother has been
-                      exceptional. The caregivers have become like family to us,
-                      and I have peace of mind knowing she&apos;s in good
-                      hands.&quot;
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-            <motion.div variants={fadeIn}>
-              <Card className="h-full border-blue-100 bg-blue-50/50">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <Avatar className="h-12 w-12 border-2 border-white">
-                      <AvatarImage src="/placeholder.svg" alt="Robert Miller" />
-                      <AvatarFallback>RM</AvatarFallback>
-                    </Avatar>
-                    <div className="space-y-1">
-                      <h3 className="font-semibold text-blue-900">
-                        Robert Miller
-                      </h3>
-                      <p className="text-sm text-gray-500">Son of client</p>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <p className="text-gray-600 italic">
-                      &quot;Finding quality care for my father was a priority
-                      for our family. The personalized attention and
-                      professional service have exceeded our expectations.&quot;
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
             </motion.div>
           </motion.div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,33 +26,6 @@ export default function AboutPage() {
       },
     },
   };
-
-  const teamMembers = [
-    {
-      name: "Sarah Johnson",
-      role: "Founder & CEO",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "With over 20 years of experience in healthcare, Sarah founded our company with a mission to provide compassionate care for seniors.",
-    },
-    {
-      name: "Michael Chen",
-      role: "Care Coordinator",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "Michael ensures that our care plans are tailored to each client's unique needs and oversees our team of dedicated caregivers.",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Head of Training",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "Emily develops our comprehensive training programs to ensure all caregivers meet our high standards of care and compassion.",
-    },
-    {
-      name: "David Wilson",
-      role: "Client Relations",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "David works closely with families to understand their needs and ensure they receive the support and care they deserve.",
-    },
-  ];
 
   return (
     <main className="flex flex-col min-h-screen">
@@ -130,7 +103,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
+      <section className="w-full py-12 md:py-24 lg:py-32 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -237,60 +210,6 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white flex justify-center">
-        <div className="container px-4 md:px-6">
-          <motion.div
-            className="flex flex-col items-center justify-center space-y-4 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
-                Our Team
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-blue-900">
-                Meet the people behind our care
-              </h2>
-              <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Our dedicated team of professionals is committed to providing
-                exceptional care with compassion and expertise.
-              </p>
-            </div>
-          </motion.div>
-          <motion.div
-            className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-4"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {teamMembers.map((member, index) => (
-              <motion.div key={index} variants={fadeIn}>
-                <Card className="h-full border-blue-100 bg-blue-50/50">
-                  <CardContent className="p-4">
-                    <Image
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      width={300}
-                      height={300}
-                      className="aspect-square object-cover rounded-lg mb-4"
-                    />
-                    <h3 className="text-lg font-bold text-blue-900">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-blue-700 mb-2">{member.role}</p>
-                    <p className="text-sm text-gray-600">{member.bio}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </section>
