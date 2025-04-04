@@ -1,17 +1,14 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  Bath,
-  Briefcase,
-  Calendar,
-  Clock,
-  Heart,
   Home,
-  MessageSquare,
-  ShoppingBag,
-  Utensils,
+  HelpingHand,
+  Pill,
+  ShieldCheck,
+  PartyPopper,
+  BusFront,
+  Stethoscope,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -22,6 +19,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import "keen-slider/keen-slider.min.css";
+import GallerySlider from "@/components/ui/ServiceGallerySlider";
 
 export default function ServicesPage() {
   const fadeIn = {
@@ -46,64 +45,88 @@ export default function ServicesPage() {
   const services = [
     {
       icon: <Home className="h-6 w-6" />,
-      title: "In-Home Care",
-      description:
-        "Personalized care in the comfort and familiarity of home, including assistance with daily activities.",
+      title: "Housing and Meals",
+      description: (
+        <ul className="list-disc pl-4 text-gray-600">
+          <li>Private or shared rooms</li>
+          <li>2–3 meals per day, plus snacks</li>
+          <li>Housekeeping and laundry services</li>
+        </ul>
+      ),
     },
     {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Companionship",
-      description:
-        "Meaningful social interaction, emotional support, and engaging activities to combat loneliness.",
+      icon: <HelpingHand className="h-6 w-6" />,
+      title: "Personal Care Assistance",
+      description: (
+        <>
+          <p>Help with activities of daily living (ADLs), such as:</p>
+          <ul className="list-disc pl-4 text-gray-600">
+            <li>Bathing</li>
+            <li>Dressing</li>
+            <li>Grooming</li>
+            <li>Toileting</li>
+            <li>Mobility (e.g., getting in and out of bed or chairs)</li>
+          </ul>
+        </>
+      ),
     },
     {
-      icon: <Clock className="h-6 w-6" />,
-      title: "Medication Reminders",
-      description:
-        "Timely medication reminders and assistance to ensure proper dosage and adherence to prescriptions.",
+      icon: <Pill className="h-6 w-6" />,
+      title: "Medication Management",
+      description: (
+        <ul className="list-disc pl-4 text-gray-600">
+          <li>Reminders to take medications</li>
+          <li>
+            Assistance with administering prescribed medications (depending on
+            state regulations)
+          </li>
+        </ul>
+      ),
     },
     {
-      icon: <Bath className="h-6 w-6" />,
-      title: "Personal Care",
-      description:
-        "Assistance with bathing, grooming, dressing, and other personal hygiene needs with dignity and respect.",
+      icon: <ShieldCheck className="h-6 w-6" />,
+      title: "24/7 Supervision and Security",
+      description: (
+        <ul className="list-disc pl-4 text-gray-600">
+          <li>Staff available at all times to respond to residents’ needs</li>
+          <li>Basic safety and security monitoring</li>
+        </ul>
+      ),
     },
     {
-      icon: <Utensils className="h-6 w-6" />,
-      title: "Meal Preparation",
-      description:
-        "Nutritious meal planning and preparation according to dietary needs and preferences.",
+      icon: <PartyPopper className="h-6 w-6" />,
+      title: "Social and Recreational Activities",
+      description: (
+        <ul className="list-disc pl-4 text-gray-600">
+          <li>
+            Group activities such as games, crafts, outings, or light exercise
+          </li>
+          <li>Social interaction and mental stimulation</li>
+        </ul>
+      ),
     },
     {
-      icon: <ShoppingBag className="h-6 w-6" />,
-      title: "Errands & Shopping",
+      icon: <BusFront className="h-6 w-6" />,
+      title: "Transportation (sometimes)",
       description:
-        "Assistance with grocery shopping, picking up prescriptions, and running other essential errands.",
+        "Rides to medical appointments or errands (may be included or available for a fee)",
     },
     {
-      icon: <Briefcase className="h-6 w-6" />,
-      title: "Light Housekeeping",
-      description:
-        "Maintaining a clean and safe living environment through light cleaning, laundry, and organization.",
-    },
-    {
-      icon: <Calendar className="h-6 w-6" />,
-      title: "Appointment Assistance",
-      description:
-        "Transportation and accompaniment to medical appointments and other scheduled activities.",
-    },
-    {
-      icon: <MessageSquare className="h-6 w-6" />,
-      title: "Family Communication",
-      description:
-        "Regular updates and communication with family members about care progress and any concerns.",
+      icon: <Stethoscope className="h-6 w-6" />,
+      title: "Coordination with Health Providers",
+      description: (
+        <ul className="list-disc pl-4 text-gray-600">
+          <li>Communicating with doctors or outside caregivers if needed</li>
+          <li>Some may assist with setting appointments</li>
+        </ul>
+      ),
     },
   ];
 
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -116,8 +139,9 @@ export default function ServicesPage() {
                 Our Services
               </h1>
               <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                We provide comprehensive care services tailored to meet the
-                unique needs of your loved ones.
+                Boarding care facilities are typically geared toward seniors or
+                adults with disabilities who need some supervision and care but
+                do not need nursing home-level care.
               </p>
             </div>
           </motion.div>
@@ -125,7 +149,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
@@ -156,8 +180,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <GallerySlider />
+
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-100">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-100 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -177,7 +203,7 @@ export default function ServicesPage() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/contact">
-                <Button className="bg-blue-700 hover:bg-blue-800">
+                <Button className="bg-blue-700 hover:bg-blue-800 cursor-pointer">
                   Schedule a Consultation
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

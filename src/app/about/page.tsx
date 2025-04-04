@@ -57,7 +57,7 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -79,7 +79,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white flex justify-center">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <motion.div
@@ -130,7 +130,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -242,7 +242,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -296,7 +296,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-100">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-100 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -309,14 +309,14 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
                 Ready to learn more about our services?
               </h2>
-              <p className="max-w-[600px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[600px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto text-center">
                 Contact us today to schedule a free consultation and discover
                 how we can help your loved ones.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/contact">
-                <Button className="bg-blue-700 hover:bg-blue-800">
+                <Button className="bg-blue-700 hover:bg-blue-800 cursor-pointer">
                   Contact Us Now
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
