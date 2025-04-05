@@ -20,6 +20,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import GallerySlider from "@/components/ui/ServiceGallerySlider";
 
 export default function HomePage() {
   const fadeIn = {
@@ -205,6 +206,9 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+      <section>
+        <GallerySlider />
       </section>
 
       {/* Why Choose Us */}

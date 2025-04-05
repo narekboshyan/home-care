@@ -20,7 +20,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import "keen-slider/keen-slider.min.css";
-import GallerySlider from "@/components/ui/ServiceGallerySlider";
 
 export default function ServicesPage() {
   const fadeIn = {
@@ -179,8 +178,6 @@ export default function ServicesPage() {
           </motion.div>
         </div>
       </section>
-
-      <GallerySlider />
 
       {/* CTA Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-100 flex justify-center">
