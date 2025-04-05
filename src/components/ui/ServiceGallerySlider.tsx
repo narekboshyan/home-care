@@ -3,7 +3,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
@@ -151,7 +151,8 @@ export default function GallerySlider() {
         >
           <div
             className={clsx(
-              "relative w-[60vw] h-[90vh] transition-transform duration-300 flex items-center justify-center",
+              "relative  w-[100vw] h-[90vh] transition-transform duration-300 flex items-center justify-center",
+              "sm:w-full sm:h-full", // mobile full screen
               modalOpen ? "scale-100" : "scale-95"
             )}
             onClick={(e) => e.stopPropagation()}
@@ -168,8 +169,8 @@ export default function GallerySlider() {
             <Image
               src={images[selectedIndex]}
               alt="Enlarged"
+              className="object-contain"
               fill
-              style={{ objectFit: "cover" }}
             />
 
             {/* Next Button */}
@@ -178,14 +179,6 @@ export default function GallerySlider() {
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 text-white p-2 rounded-full"
             >
               <ChevronRight className="w-6 h-6" />
-            </button>
-
-            {/* Close Button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-white bg-black/60 rounded-full p-2 z-20"
-            >
-              <X className="w-6 h-6" />
             </button>
           </div>
         </div>
