@@ -11,6 +11,17 @@ export default function GallerySlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [hasMounted, setHasMounted] = useState(false);
 
+  const images = [
+    "/bedroom_1.jpeg",
+    "/kitchen.jpeg",
+    "/living_room.jpeg",
+    "/bedroom_2.jpeg",
+    "/bathroom.jpeg",
+    "/bedroom_3.jpeg",
+    "/bedroom_4.jpeg",
+    "/corridor.jpeg",
+  ];
+
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     slides: { perView: 3, spacing: 16 },
@@ -27,28 +38,27 @@ export default function GallerySlider() {
     },
   });
 
-  const images = [
-    "/bedroom_1.jpeg",
-    "/kitchen.jpeg",
-    "/living_room.jpeg",
-    "/bedroom_2.jpeg",
-    "/bathroom.jpeg",
-    "/bedroom_3.jpeg",
-    "/bedroom_4.jpeg",
-    "/corridor.jpeg",
-  ];
-
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const openModal = (src: string) => {
-    setSelectedImage(src);
+  const openModal = (index: number) => {
+    setSelectedIndex(index);
     setModalOpen(true);
   };
 
   const closeModal = () => {
     setModalOpen(false);
-    setTimeout(() => setSelectedImage(null), 300); // Allow animation to complete
+    setTimeout(() => setSelectedIndex(null), 300); // Wait for animation
+  };
+
+  const showNextImage = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((prev) => (prev! + 1) % images.length);
+  };
+
+  const showPrevImage = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((prev) => (prev! - 1 + images.length) % images.length);
   };
 
   useEffect(() => {
@@ -57,12 +67,13 @@ export default function GallerySlider() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") {
-        instanceRef.current?.next();
-      } else if (e.key === "ArrowLeft") {
-        instanceRef.current?.prev();
-      } else if (e.key === "Escape" && modalOpen) {
-        closeModal();
+      if (modalOpen) {
+        if (e.key === "ArrowRight") showNextImage();
+        else if (e.key === "ArrowLeft") showPrevImage();
+        else if (e.key === "Escape") closeModal();
+      } else {
+        if (e.key === "ArrowRight") instanceRef.current?.next();
+        else if (e.key === "ArrowLeft") instanceRef.current?.prev();
       }
     };
 
@@ -70,7 +81,7 @@ export default function GallerySlider() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [modalOpen, instanceRef]);
+  }, [modalOpen, selectedIndex]);
 
   return (
     <section className="w-full pt-0 pb-12 md:pb-24 lg:pb-32 flex flex-col items-center">
@@ -103,7 +114,7 @@ export default function GallerySlider() {
             <div className="keen-slider__slide px-2" key={i}>
               <div
                 className="w-full h-64 relative rounded-lg overflow-hidden cursor-pointer"
-                onClick={() => openModal(src)}
+                onClick={() => openModal(i)}
               >
                 <Image
                   src={src}
@@ -130,8 +141,7 @@ export default function GallerySlider() {
         ))}
       </div>
 
-      {/* Modal with animation and 60% width */}
-      {selectedImage && (
+      {selectedIndex !== null && (
         <div
           className={clsx(
             "fixed inset-0 bg-black/80 z-50 flex items-center justify-center transition-opacity duration-300",
@@ -141,22 +151,39 @@ export default function GallerySlider() {
         >
           <div
             className={clsx(
-              "relative w-[60vw] h-[90vh] transition-transform duration-300",
+              "relative w-[60vw] h-[90vh] transition-transform duration-300 flex items-center justify-center",
               modalOpen ? "scale-100" : "scale-95"
             )}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Prev Button */}
+            <button
+              onClick={showPrevImage}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 text-white p-2 rounded-full"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Image */}
             <Image
-              src={selectedImage}
+              src={images[selectedIndex]}
               alt="Enlarged"
               fill
-              style={{
-                objectFit: "cover",
-              }}
+              style={{ objectFit: "cover" }}
             />
+
+            {/* Next Button */}
+            <button
+              onClick={showNextImage}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 text-white p-2 rounded-full"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-white bg-black/60 rounded-full p-2"
+              className="absolute top-4 right-4 text-white bg-black/60 rounded-full p-2 z-20"
             >
               <X className="w-6 h-6" />
             </button>
