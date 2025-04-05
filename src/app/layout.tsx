@@ -26,7 +26,7 @@ export default function RootLayout({
         >
           <div className="flex flex-col min-h-screen">
             <Header />
-            <div className="mx-auto">{children}</div>
+            <div className="w-full items-center justify-center">{children}</div>
             <Footer />
           </div>
         </ThemeProvider>

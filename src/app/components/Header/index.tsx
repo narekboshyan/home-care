@@ -10,13 +10,13 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between mx-auto">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 px-3">
           <Heart className="h-6 w-6 text-blue-700" />
           <span className="text-xl font-bold text-blue-900">
             Northridge Boarding Care
           </span>
         </Link>
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-12">
           <Link
             href="/"
             className="text-sm font-medium hover:text-blue-700 transition-colors"
@@ -44,7 +44,7 @@ export function Header() {
         </nav>
         <div className="hidden md:flex">
           <Link href="/contact">
-            <Button className="bg-blue-700 hover:bg-blue-800">
+            <Button className="bg-blue-700 hover:bg-blue-800 cursor-pointer">
               Get Started
             </Button>
           </Link>

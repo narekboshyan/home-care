@@ -74,7 +74,7 @@ export default function ContactPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -96,7 +96,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white flex justify-center">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <motion.div
@@ -180,7 +180,7 @@ export default function ContactPage() {
                         </div>
                         <Button
                           type="submit"
-                          className="w-full bg-blue-700 hover:bg-blue-800"
+                          className="w-full bg-blue-700 hover:bg-blue-800 cursor-pointer"
                           disabled={isSubmitting}
                         >
                           {isSubmitting ? "Sending..." : "Send Message"}
@@ -251,8 +251,8 @@ export default function ContactPage() {
                   </div>
                 </CardContent>
               </Card>
+
               <div className="rounded-lg overflow-hidden border border-blue-100 h-[300px] w-full">
-                {/* Map placeholder - in a real app, you would integrate Google Maps or another map provider */}
                 <div className="w-full h-full bg-blue-50 flex items-center justify-center">
                   <MapContainer
                     center={[34.2299414, -118.5709483]}
