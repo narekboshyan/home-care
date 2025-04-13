@@ -48,7 +48,7 @@ export default function GallerySlider() {
 
   const closeModal = () => {
     setModalOpen(false);
-    setTimeout(() => setSelectedIndex(null), 300); // Wait for animation
+    setTimeout(() => setSelectedIndex(null), 300);
   };
 
   const showNextImage = () => {

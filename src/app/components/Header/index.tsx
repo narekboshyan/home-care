@@ -18,32 +18,32 @@ export function Header() {
         <nav className="hidden md:flex gap-12">
           <Link
             href="/"
-            className="text-sm font-medium hover:text-blue-700 transition-colors"
+            className="text-md font-medium hover:text-blue-900 transition-colors"
           >
             Home
           </Link>
           <Link
             href="/services"
-            className="text-sm font-medium hover:text-blue-700 transition-colors"
+            className="text-md font-medium hover:text-blue-900 transition-colors"
           >
             Services
           </Link>
           <Link
             href="/about"
-            className="text-sm font-medium hover:text-blue-700 transition-colors"
+            className="text-md font-medium hover:text-blue-900 transition-colors"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="text-sm font-medium hover:text-blue-700 transition-colors"
+            className="text-md font-medium hover:text-blue-900 transition-colors"
           >
             Contact
           </Link>
         </nav>
         <div className="hidden md:flex">
           <Link href="/contact">
-            <Button className="bg-blue-700 hover:bg-blue-800 cursor-pointer">
+            <Button className="bg-[#ff7558] hover:bg-[#ff5e3a] text-white hover:text-[white] cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105">
               Get Started
             </Button>
           </Link>
@@ -63,7 +63,7 @@ export function Header() {
         </Button>
       </div>
       {isMenuOpen && (
-        <div className="container md:hidden py-4 pb-6 border-t">
+        <div className="container md:hidden py-4 pb-6 border-t px-2">
           <nav className="flex flex-col gap-4">
             <Link
               href="/"
@@ -94,9 +94,7 @@ export function Header() {
               Contact
             </Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              <Button className="w-full bg-blue-700 hover:bg-blue-800 mt-2">
-                Get Started
-              </Button>
+              <Button className="w-full bg-[#ff7558]">Get Started</Button>
             </Link>
           </nav>
         </div>
