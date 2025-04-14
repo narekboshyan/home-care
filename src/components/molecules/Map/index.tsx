@@ -14,7 +14,7 @@ const customIcon = new L.Icon({
 
 const Map = () => {
   return (
-    <div className="rounded-lg overflow-hidden border border-blue-100 h-[300px] w-full">
+    <div className="rounded-lg overflow-hidden border border-blue-100 h-[300px] md:h-[500px] w-full">
       <div className="w-full h-full bg-blue-50 flex items-center justify-center">
         <MapContainer
           center={[34.2299414, -118.5709483]}
