@@ -45,7 +45,7 @@ export default function HomePage() {
   return (
     <main className="flex flex-col min-h-screen ">
       {/* Hero Section */}
-      <section className="relative w-full py-12 md:py-24 bg-blue-50">
+      <section className="relative w-full py-12 md:py-28 bg-blue-50">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 max-w-[1200px] mx-auto">
           <motion.div
             className="flex flex-col justify-center space-y-4 px-4"
@@ -54,7 +54,7 @@ export default function HomePage() {
             variants={fadeIn}
           >
             <div className="space-y-2 max-w-[800px]">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-900">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-[#2c2a49]">
                 Because they deserve the best care
               </h1>
               <p className="max-w-[600px] text-gray-600 md:text-xl">
@@ -64,7 +64,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/contact">
-                <Button className="bg-blue-700 hover:bg-blue-800 cursor-pointer">
+                <Button className="bg-[#ff7558] hover:bg-[#ff5e3a] text-white hover:text-[white]  cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -72,7 +72,7 @@ export default function HomePage() {
               <Link href="/services">
                 <Button
                   variant="outline"
-                  className="border-blue-200 text-blue-700 cursor-pointer"
+                  className="border-blue-200 text-[#2c2a49]  cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
                 >
                   Our Services
                 </Button>
@@ -86,7 +86,7 @@ export default function HomePage() {
             className="relative hidden lg:flex items-center justify-end"
           >
             <Image
-              src="/care-giver.jpg"
+              src="/bg_image.webp"
               width={550}
               height={550}
               alt="Senior woman with caregiver"
@@ -107,7 +107,7 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
           >
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-[#2c2a49]">
                 Our Services
               </h2>
               <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -124,12 +124,12 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <motion.div variants={fadeIn}>
-              <Card className="h-full border-blue-100 bg-blue-50/50 transition-all hover:shadow-md min-h-[312px]">
+              <Card className="h-full min-h-[327px] border-blue-100 bg-blue-50/50 transition-transform duration-300 ease-in-out hover:scale-[1.05] hover:shadow-lg">
                 <CardHeader className="pb-2">
-                  <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                    <Home className="h-6 w-6" />
+                  <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#ff7558] text-white">
+                    <Home className="h-6 w-6 " />
                   </div>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#2c2a49] text-[22px]">
                     Housing and Meals
                   </CardTitle>
                 </CardHeader>
@@ -145,12 +145,12 @@ export default function HomePage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeIn}>
-              <Card className="h-full border-blue-100 bg-blue-50/50 transition-all hover:shadow-md min-h-[312px]">
+              <Card className="h-full min-h-[327px] border-blue-100 bg-blue-50/50 transition-transform duration-300 ease-in-out hover:scale-[1.05] hover:shadow-lg">
                 <CardHeader className="pb-2">
-                  <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                  <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#ff7558] text-white">
                     <HelpingHand className="h-6 w-6" />
                   </div>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#2c2a49] text-[22px]">
                     Personal Care Assistance
                   </CardTitle>
                 </CardHeader>
@@ -171,12 +171,12 @@ export default function HomePage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeIn}>
-              <Card className="h-full border-blue-100 bg-blue-50/50 transition-all hover:shadow-md min-h-[312px]">
+              <Card className="h-full min-h-[327px] border-blue-100 bg-blue-50/50 transition-transform duration-300 ease-in-out hover:scale-[1.05] hover:shadow-lg">
                 <CardHeader className="pb-2">
-                  <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                  <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#ff7558] text-white">
                     <Pill className="h-6 w-6" />
                   </div>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#2c2a49] text-[22px]">
                     Medication Management
                   </CardTitle>
                 </CardHeader>
@@ -198,7 +198,7 @@ export default function HomePage() {
             <Link href="/services">
               <Button
                 variant="outline"
-                className="border-blue-200 text-blue-700 cursor-pointer"
+                className="bg-[#ff7558] hover:bg-[#ff5e3a] text-white hover:text-white cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
               >
                 View All Services
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -222,7 +222,7 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
           >
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-[#2c2a49]">
                 Why Choose Us
               </h2>
               <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -240,11 +240,11 @@ export default function HomePage() {
           >
             <motion.div variants={fadeIn} className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#ff7558] text-white">
                   <Shield className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-blue-900">
+                  <h3 className="text-xl font-bold text-[#2c2a49] text-[22px]">
                     Trusted Professionals
                   </h3>
                   <p className="text-gray-600">
@@ -254,11 +254,11 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#ff7558] text-white">
                   <Heart className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-blue-900">
+                  <h3 className="text-xl font-bold text-[#2c2a49] text-[22px]">
                     Personalized Care Plans
                   </h3>
                   <p className="text-gray-600">
@@ -270,11 +270,11 @@ export default function HomePage() {
             </motion.div>
             <motion.div variants={fadeIn} className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#ff7558] text-white">
                   <Clock className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-blue-900">
+                  <h3 className="text-xl font-bold text-[#2c2a49] text-[22px]">
                     24/7 Availability
                   </h3>
                   <p className="text-gray-600">
@@ -284,11 +284,11 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#ff7558] text-white">
                   <MessageSquare className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-blue-900">
+                  <h3 className="text-xl font-bold text-[#2c2a49] text-[22px]">
                     Regular Communication
                   </h3>
                   <p className="text-gray-600">
@@ -303,7 +303,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-100 flex justify-center">
+      <section className="w-full py-12 md:py-24 lg:py-32  flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -313,7 +313,7 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
           >
             <div className="space-y-2">
-              <h3 className="font-bold tracking-tighter text-4xl text-blue-900">
+              <h3 className="font-bold tracking-tighter text-4xl text-[]">
                 Ready to provide the best care for your loved ones?
               </h3>
               <p className="max-w-[600px] mx-auto text-center text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -323,7 +323,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/contact">
-                <Button className="bg-blue-700 hover:bg-blue-800 cursor-pointer">
+                <Button className="bg-[#ff7558] hover:bg-[#ff5e3a] text-white hover:text-[white] cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105">
                   Contact Us Now
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -331,7 +331,7 @@ export default function HomePage() {
               <Link href="/services">
                 <Button
                   variant="outline"
-                  className="border-blue-200 text-blue-700 cursor-pointer"
+                  className="border-blue-200 text-[#2c2a49] cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
                 >
                   Explore Services
                 </Button>

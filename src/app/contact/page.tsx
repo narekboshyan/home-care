@@ -66,8 +66,15 @@ export default function ContactPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
-        <div className="container px-4 md:px-6">
+      <section className="relative w-full py-12 md:py-24 lg:py-32 flex justify-center bg-blue-50 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-[url('/bg-image.png')] bg-cover bg-center "
+          aria-hidden="true"
+        />
+
+        <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
+
+        <div className="relative z-10 container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
             initial="hidden"
@@ -75,10 +82,10 @@ export default function ContactPage() {
             variants={fadeIn}
           >
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-blue-900">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-[white]">
                 Contact Us
               </h1>
-              <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 We&apos;re here to answer your questions and help you find the
                 right care solution for your loved ones.
               </p>
@@ -99,8 +106,8 @@ export default function ContactPage() {
               <Card className="border-blue-100">
                 <CardContent className="p-6">
                   <div className="space-y-4">
-                    <h2 className="text-2xl font-bold text-blue-900">
-                      Get in Touch
+                    <h2 className="text-[24px] font-bold text-[#ff7558]">
+                      Let’s Contact
                     </h2>
                     <p className="text-gray-600">
                       Fill out the form below and one of our care specialists
@@ -172,7 +179,7 @@ export default function ContactPage() {
                         </div>
                         <Button
                           type="submit"
-                          className="w-full bg-blue-700 hover:bg-blue-800 cursor-pointer"
+                          className="w-full bg-[#ff7558] hover:bg-[#ff5e3a] text-white hover:text-[white] cursor-pointer "
                           disabled={isSubmitting}
                         >
                           {isSubmitting ? "Sending..." : "Send Message"}
@@ -192,9 +199,8 @@ export default function ContactPage() {
               <Card className="border-blue-100">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                      <Phone className="h-5 w-5" />
-                    </div>
+                    <Phone className="w-8 h-8 text-[#ff7558]" />
+
                     <div>
                       <h3 className="text-lg font-semibold text-blue-900">
                         Phone
@@ -207,12 +213,11 @@ export default function ContactPage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-blue-100">
+              <Card className="border-blue-100 ">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                      <Mail className="h-5 w-5" />
-                    </div>
+                    <Mail className="w-8 h-8 text-[#ff7558]" />
+
                     <div>
                       <h3 className="text-lg font-semibold text-blue-900">
                         Email
@@ -230,9 +235,7 @@ export default function ContactPage() {
               <Card className="border-blue-100">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                      <MapPin className="h-5 w-5" />
-                    </div>
+                    <MapPin className="w-8 h-8 text-[#ff7558]" />
                     <div>
                       <h3 className="text-lg font-semibold text-blue-900">
                         Office Location
@@ -243,13 +246,12 @@ export default function ContactPage() {
                   </div>
                 </CardContent>
               </Card>
-
-              <div className="rounded-lg overflow-hidden border border-blue-100 h-[300px] w-full">
-                <div className="w-full h-full bg-blue-50 flex items-center justify-center">
-                  <Map />
-                </div>
-              </div>
             </motion.div>
+          </div>
+          <div className="rounded-lg overflow-hidden border border-blue-100  h-[300px] md:h-[500px] max-w-[1200px] w-full mt-[50px] mx-auto">
+            <div className="w-full h-full bg-blue-50 flex items-center justify-center">
+              <Map />
+            </div>
           </div>
         </div>
       </section>

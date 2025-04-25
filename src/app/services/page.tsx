@@ -125,8 +125,14 @@ export default function ServicesPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
-        <div className="container px-4 md:px-6">
+      <section className="relative w-full py-12 md:py-24 lg:py-32 flex justify-center bg-blue-50 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-[url('/bg-image.png')] bg-cover bg-center "
+          aria-hidden="true"
+        />
+
+        <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
+        <div className="relative z-10 container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
             initial="hidden"
@@ -134,10 +140,10 @@ export default function ServicesPage() {
             variants={fadeIn}
           >
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-blue-900">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-[white]">
                 Our Services
               </h1>
-              <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Boarding care facilities are typically geared toward seniors or
                 adults with disabilities who need some supervision and care but
                 do not need nursing home-level care.
@@ -160,10 +166,10 @@ export default function ServicesPage() {
               <motion.div key={index} variants={fadeIn}>
                 <Card className="h-full border-blue-100 bg-blue-50/50 transition-all hover:shadow-md">
                   <CardHeader className="pb-2">
-                    <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                    <div className="mb-2 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#ff7558] text-white">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-blue-900">
+                    <CardTitle className="text-[#2c2a49] text-[22px]">
                       {service.title}
                     </CardTitle>
                   </CardHeader>
@@ -180,7 +186,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-100 flex justify-center">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 flex justify-center">
         <div className="container px-4 md:px-6">
           <motion.div
             className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -190,7 +196,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.5 }}
           >
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#2c2a49]">
                 Personalized Care Plans
               </h2>
               <p className="max-w-[600px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -200,7 +206,7 @@ export default function ServicesPage() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/contact">
-                <Button className="bg-blue-700 hover:bg-blue-800 cursor-pointer">
+                <Button className="bg-[#ff7558] hover:bg-[#ff5e3a] text-white hover:text-[white] cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105">
                   Schedule a Consultation
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
