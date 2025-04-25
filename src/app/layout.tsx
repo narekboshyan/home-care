@@ -89,6 +89,9 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-KNZD8FD8');`,
         }}
       />
+      <head>
+        <link rel="icon" href="./favicon.ico" />
+      </head>
 
       <body className={inter.className}>
         {/* Google Tag Manager noscript - Immediately after opening body tag */}
