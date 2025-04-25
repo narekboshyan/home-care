@@ -4,7 +4,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import clsx from "clsx";
 
 export default function GallerySlider() {
@@ -51,15 +51,15 @@ export default function GallerySlider() {
     setTimeout(() => setSelectedIndex(null), 300); // Wait for animation
   };
 
-  const showNextImage = () => {
+  const showNextImage = useCallback(() => {
     if (selectedIndex === null) return;
     setSelectedIndex((prev) => (prev! + 1) % images.length);
-  };
+  }, [images.length, selectedIndex]);
 
-  const showPrevImage = () => {
+  const showPrevImage = useCallback(() => {
     if (selectedIndex === null) return;
     setSelectedIndex((prev) => (prev! - 1 + images.length) % images.length);
-  };
+  }, [images.length, selectedIndex]);
 
   useEffect(() => {
     setHasMounted(true);
@@ -81,7 +81,7 @@ export default function GallerySlider() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [modalOpen, selectedIndex]);
+  }, [instanceRef, modalOpen, selectedIndex, showNextImage, showPrevImage]);
 
   return (
     <section className="w-full pt-0 pb-12 md:pb-24 lg:pb-32 flex flex-col items-center">
