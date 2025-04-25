@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     images: ["https://carenorthridge.com/images/twitter-image.jpg"],
   },
   verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
+    google: "2OyVOr4WxQy2a4rERyww9zpEuN0oJJ_Y_CbJtBzTwNM",
   },
 };
 
@@ -91,6 +91,10 @@ export default function RootLayout({
       />
       <head>
         <link rel="icon" href="./favicon.ico" />
+        <meta
+          name="google-site-verification"
+          content="2OyVOr4WxQy2a4rERyww9zpEuN0oJJ_Y_CbJtBzTwNM"
+        />
       </head>
 
       <body className={inter.className}>
