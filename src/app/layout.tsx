@@ -9,66 +9,50 @@ import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://carenorthridge.com"),
-  title: {
-    default: "Northridge Boarding Care - Senior Living & Care Services",
-    template: "%s | Northridge Boarding Care",
-  },
-  description:
-    "Northridge Boarding Care provides exceptional senior living services with private rooms, 24/7 care, delicious meals, and personalized assistance.",
-  keywords: [
-    "boarding care",
-    "senior care",
-    "elder care",
-    "Northridge",
-    "assisted living",
-    "senior housing",
-  ],
-  creator: "Northridge Boarding Care",
-  publisher: "Northridge Boarding Care",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    metadataBase: new URL("https://carenorthridge.com"),
+    title: "Northridge Boarding Care - Senior Living & Care Services",
+    description:
+      "Northridge Boarding Care provides exceptional senior living services with private rooms, 24/7 care, delicious meals, and personalized assistance.",
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: "https://carenorthridge.com",
+      siteName: "Northridge Boarding Care",
+      title: "Northridge Boarding Care - Senior Living & Care Services",
+      description:
+        "Compassionate boarding care for seniors in Northridge with private rooms, 24/7 supervision, meals, and personal assistance.",
+      images: [
+        {
+          url: "https://carenorthridge.com/care-northridge.png",
+          width: 1200,
+          height: 630,
+          alt: "Northridge Boarding Care Facility",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Northridge Boarding Care - Senior Living & Care Services",
+      description:
+        "Compassionate boarding care for seniors in Northridge with private rooms, 24/7 supervision, meals, and personal assistance.",
+      images: ["https://carenorthridge.com/care-northridge.png"],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  alternates: {
-    canonical: "https://carenorthridge.com",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://carenorthridge.com",
-    title: "Northridge Boarding Care - Senior Living & Care Services",
-    description:
-      "Compassionate boarding care for seniors in Northridge with private rooms, 24/7 supervision, meals, and personal assistance.",
-    siteName: "Northridge Boarding Care",
-    images: [
-      {
-        url: "https://carenorthridge.com/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Northridge Boarding Care Facility",
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Northridge Boarding Care - Senior Living & Care Services",
-    description:
-      "Compassionate boarding care for seniors in Northridge with private rooms, 24/7 supervision, meals, and personal assistance.",
-    images: ["https://carenorthridge.com/images/twitter-image.jpg"],
-  },
-  verification: {
-    google: "2OyVOr4WxQy2a4rERyww9zpEuN0oJJ_Y_CbJtBzTwNM",
-  },
-};
+    },
+    alternates: {
+      canonical: "https://carenorthridge.com",
+    },
+  };
+}
 
 export default function RootLayout({
   children,
