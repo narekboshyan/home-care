@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
+  },
 };
 
 export default nextConfig;
