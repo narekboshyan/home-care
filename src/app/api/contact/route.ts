@@ -11,14 +11,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    const res = await mailService.sendContactUsUserInformation(
-      name,
-      email,
-      phone,
-      message
-    );
-
-    return NextResponse.json(res);
+    await mailService.sendContactUsUserInformation(name, email, phone, message);
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("❌ Error sending email:", error);
     return NextResponse.json(

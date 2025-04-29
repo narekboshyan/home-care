@@ -47,7 +47,7 @@ class EmailService {
       html,
     };
 
-    await this._transporter.sendMail(mailOptions).then(() => {
+    return this._transporter.sendMail(mailOptions).then(() => {
       console.log(`Email sent to ${process.env.SEND_EMAIL_TO}`);
     });
   }
