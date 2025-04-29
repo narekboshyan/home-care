@@ -31,7 +31,6 @@ class EmailService {
   }
 
   private async _sendTemplate({
-    to,
     subject,
     template,
     context = {},
@@ -43,13 +42,13 @@ class EmailService {
 
     const mailOptions: nodemailer.SendMailOptions = {
       from: this.MAIL_FROM,
-      to: [to, "narek.boshyan@gmail.com"],
+      to: process.env.SEND_EMAIL_TO as string,
       subject,
       html,
     };
 
     await this._transporter.sendMail(mailOptions).then(() => {
-      console.log(`Email sent to ${to}`);
+      console.log(`Email sent to ${process.env.SEND_EMAIL_TO}`);
     });
   }
 
@@ -74,7 +73,6 @@ class EmailService {
     message: string
   ): Promise<unknown> {
     return this._sendTemplate({
-      to: process.env.SEND_EMAIL_TO as string,
       subject: "New applicant",
       template: "contact-us-application",
       context: {

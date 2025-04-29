@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
     if (!name || !email || !phone || !message) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
+
     const res = await mailService.sendContactUsUserInformation(
       name,
       email,
