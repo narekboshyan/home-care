@@ -10,13 +10,14 @@ export async function POST(req: NextRequest) {
     if (!name || !email || !phone || !message) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
+    const res = await mailService.sendContactUsUserInformation(
+      name,
+      email,
+      phone,
+      message
+    );
 
-    mailService
-      .sendContactUsUserInformation(name, email, phone, message)
-      .then(console.log)
-      .catch(console.error);
-
-    return NextResponse.json({ success: true });
+    return res;
   } catch (error) {
     console.error("❌ Error sending email:", error);
     return NextResponse.json(
