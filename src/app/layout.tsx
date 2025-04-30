@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
         "Compassionate boarding care for seniors in Northridge with private rooms, 24/7 supervision, meals, and personal assistance.",
       images: [
         {
-          url: "https://carenorthridge.com/care-northridge.png",
+          url: "https://carenorthridge.com/bg_image.webp",
           width: 1200,
           height: 630,
           alt: "Northridge Boarding Care Facility",
@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Northridge Boarding Care - Senior Living & Care Services",
       description:
         "Compassionate boarding care for seniors in Northridge with private rooms, 24/7 supervision, meals, and personal assistance.",
-      images: ["https://carenorthridge.com/care-northridge.png"],
+      images: ["https://carenorthridge.com/bg_image.webp"],
     },
     robots: {
       index: true,
